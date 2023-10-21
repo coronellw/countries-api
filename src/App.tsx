@@ -1,15 +1,11 @@
-import Layout from './layout'
+import Layout from "./layout"
 
-import './App.scss'
+import "./App.scss"
 
 // https://restcountries.com
 
 function App() {
-  return (
-    <Layout>
-      Hello
-    </Layout>
-  )
+  return <Layout>Hello</Layout>
 }
 
 export default App

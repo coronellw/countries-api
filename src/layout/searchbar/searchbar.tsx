@@ -6,8 +6,6 @@ import Dropdown, { Item } from "components/Dropdown"
 
 import "./searchbar.scss"
 
-type SearchBarProps = {}
-
 const defaultOption: Item = { label: 'Filter by Region', value: 'all' }
 const regions: Array<Item> = [
   { label: 'Africa', value: 'africa' },
@@ -17,7 +15,7 @@ const regions: Array<Item> = [
   { label: 'Oceania', value: 'Oceania' },
 ]
 
-function SearchBar({ }: SearchBarProps) {
+function SearchBar() {
   const [currentItem, setCurrentItem] = useState<Item>(defaultOption)
   const handleSelectedItem = (item: Item) => setCurrentItem(item)
   return (

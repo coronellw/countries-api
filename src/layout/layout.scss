@@ -4,8 +4,9 @@
   min-height: 100vh;
   min-width: 375px;
   height: 100%;
-}
 
-.content {
-  background-color: greenyellow;
+  color: hsl(var(--fg-clr));
+  background-color: hsl(var(--bg-clr));
+  --shadow: 0px 1px 10px 0px hsla(var(--fg-clr), 0.45);
+  --shadow-1: 0px 1px 1px 0px hsla(var(--fg-clr), 0.45);
 }
