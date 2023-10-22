@@ -2,7 +2,20 @@ import { createContext, useContext, PropsWithChildren, useReducer } from "react"
 import { reducer, initialCountryState } from "./country-reducer"
 
 export type Country = {
-  name: string
+  name: {
+    common: string
+    official: string
+    nativeName: any
+  },
+  capital: Array<string>
+  region: string
+  population: number
+  flags: {
+    png?: string
+    svg?: string
+    alt?: string
+  }
+  cioc: string
 }
 
 export type countryState = {

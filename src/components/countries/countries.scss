@@ -1,0 +1,25 @@
+.countries {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: min-content;
+  place-content: center;
+
+  .country {
+    background-color: hsl(var(--elements));
+    color: hsl(var(--fg-clr))
+  }
+
+  .card-text {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    & label {
+      font-weight: 600;
+    }
+  }
+
+  .combo {
+    display: flex;
+    gap: 0.25rem;
+  }
+}

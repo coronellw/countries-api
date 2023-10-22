@@ -14,18 +14,19 @@
    .btn {
     padding: 1rem;
     box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.4);
-    color: var(--fg-clr);
+    color: hsl(var(--fg-clr));
+    background-color: hsl(var(--elements));
    }
   }
 
   .dropdown-menu {
     border: none;
     box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.4);
-    background-color: var(--bg-clr);
+    background-color: hsl(var(--elements));
   }
 
   .dropdown-item {
-    color: var(--fg-clr);
+    color: hsl(var(--fg-clr));
   }
 
   .dropdown-toggle {

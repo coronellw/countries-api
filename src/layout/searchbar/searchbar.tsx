@@ -21,7 +21,7 @@ const regions: Array<Item> = [
 
 function getRestCountryURL(region: string): string {
   return region === "all"
-    ? "https://restcountries.com/v3.1/all"
+    ? "https://restcountries.com/v3.1/all?fields=name,population,region,capital,flags,cioc"
     : `https://restcountries.com/v3.1/region/${region}`
 }
 
@@ -36,7 +36,6 @@ function SearchBar() {
         getRestCountryURL(currentItem.value as string)
       )
       const data = await results.json()
-      console.log(data)
       setCountries(data)
     } catch (error) {
       console.log("We catched and error\n", error)
