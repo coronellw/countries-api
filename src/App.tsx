@@ -1,5 +1,5 @@
-import Layout from "./layout/layout"
-import Countries from "components/countries"
+import Layout from "./layout"
+import { Outlet } from "react-router-dom"
 
 import "./App.scss"
 
@@ -7,7 +7,7 @@ import "./App.scss"
 
 function App() {
   return <Layout>
-    <Countries />
+    <Outlet />
   </Layout>
 }
 

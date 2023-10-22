@@ -1,7 +1,7 @@
 .countries {
   display: grid;
   gap: 2rem;
-  grid-template-columns: min-content;
+  grid-template-columns: minmax(min-content, 300px);
   place-content: center;
 
   .country {

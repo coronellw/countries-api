@@ -1,15 +1,17 @@
 import React from "react"
 import ReactDOM from "react-dom/client"
+import { RouterProvider } from 'react-router-dom'
+import { router } from "routes/root"
+
 import { ThemeProvider } from "context/theme-context"
 import { CountryProvider } from "context/country-context"
-import App from "./App.tsx"
 import "./index.scss"
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <CountryProvider>
       <ThemeProvider>
-        <App />
+        <RouterProvider router={router} />
       </ThemeProvider>
     </CountryProvider>
   </React.StrictMode>

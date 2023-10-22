@@ -1,6 +1,5 @@
 import React from "react"
 import { useTheme } from "context/theme-context"
-import SearchBar from "./searchbar"
 import TopBar from "./topbar"
 
 import "./layout.scss"
@@ -14,7 +13,6 @@ function Layout({ children, ...otherProps }: LayoutProps) {
   return (
     <div className="layout" data-theme={mode} {...otherProps}>
       <TopBar />
-      <SearchBar />
       <main className="content">{children}</main>
     </div>
   )

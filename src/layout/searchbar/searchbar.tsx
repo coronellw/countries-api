@@ -46,7 +46,7 @@ function SearchBar() {
     fetchCountries()
   }, [fetchCountries])
   return (
-    <div className="search container-xl">
+    <div className="search container-fluid">
       <span className="search__bar">
         <FontAwesomeIcon
           className="search__icon"

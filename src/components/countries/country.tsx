@@ -5,13 +5,13 @@ type CountryProps = {
 }
 function Country({ country }: CountryProps) {
   return (
-    <div className="card pb-5 country">
+    <div className="card pb-4 country">
       <img
         src={country.flags.svg}
         className="card-img-top object-fit-cover"
         alt={country.flags.alt}
       />
-      <div className="card-body pt-5 px-4">
+      <div className="card-body pt-4 px-4">
         <h5 className="card-title">{country.name.common}</h5>
         <div className="card-text">
           <span className="combo">
