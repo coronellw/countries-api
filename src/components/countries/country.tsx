@@ -1,11 +1,32 @@
-import { Country as CountryType } from "context/country-context"
+import { useNavigate } from "react-router-dom"
+import { Country as CountryType, useCountryContext } from "context/country-context"
 
 type CountryProps = {
   country: CountryType
 }
 function Country({ country }: CountryProps) {
+  const { setSelectedCountry, setFilter } = useCountryContext()
+  const navigate = useNavigate();
+
+  const handleFetchCountry = async () => {
+    try {
+      const fetchResponse = await fetch(`https://restcountries.com/v3.1/alpha/${country.cioc}`)
+      const countryResult = await fetchResponse.json()
+      setSelectedCountry(countryResult[0])
+      setFilter('')
+
+      return navigate('/country-details')
+    } catch (error) {
+      return navigate('/error')
+    }
+    
+  }
+
   return (
-    <div className="card pb-4 country">
+    <div
+      className="card pb-4 country"
+      onClick={handleFetchCountry}
+    >
       <img
         src={country.flags.svg}
         className="card-img-top object-fit-cover"
@@ -16,7 +37,7 @@ function Country({ country }: CountryProps) {
         <div className="card-text">
           <span className="combo">
             <label>Population:</label>
-            <span>{country.population}</span>
+            <span>{country.population.toLocaleString()}</span>
           </span>
           <span className="combo">
             <label>Region:</label>

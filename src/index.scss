@@ -13,7 +13,7 @@
   -webkit-text-size-adjust: 100%;
 
   --fg-clr: 200, 15%, 8%;
-  --bg-clr: 0, 0%, 98%;
+  --bg-clr: 0, 0%, 95%;
   --elements: 0, 0%, 100%;
   --input-clr: 0, 0%, 52%;
 
@@ -48,4 +48,10 @@ textarea {
 
 input::placeholder {
   color: var(--input-clr)
+}
+
+
+body {
+  color: hsl(var(--fg-clr));
+  background-color: hsl(var(--bg-clr));
 }

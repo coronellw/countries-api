@@ -45,6 +45,7 @@ function SearchBar() {
   useEffect(() => {
     fetchCountries()
   }, [fetchCountries])
+  
   return (
     <div className="search container my-4">
       <span className="search__bar col-sm-12 col-md-4">

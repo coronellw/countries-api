@@ -1,0 +1,10 @@
+.combo {
+  display: flex;
+  gap: 0.25rem;
+  label {
+    font-weight: bold;
+  }
+  &--column {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,12 @@
+.back-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 150px;
+  padding: .75rem 0;
+  gap: 1rem;
+  background-color: hsl(var(--elements));
+  color: hsl(var(--fg-clr));
+  box-shadow: var(--shadow);
+  text-decoration: none;
+}

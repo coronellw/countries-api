@@ -32,6 +32,9 @@
 
   .dropdown-item {
     color: hsl(var(--fg-clr));
+    &:hover {
+      background-color: hsl(var(--bg-clr));
+    }
   }
 
   .dropdown-toggle {

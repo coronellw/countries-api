@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom'
 import App from 'App'
 import Countries from 'components/countries'
+import CountryDetails from 'components/country-details'
 import Error from 'components/Error'
 
 export async function loader() {
@@ -16,13 +17,13 @@ export const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       {
-        path: "country/:country",
-        element: <div>TODO</div>
+        index: true,
+        element: <Countries />,
       },
       {
-        path: "country",
-        element: <Countries />
-      }
+        path: "country-details",
+        element: <CountryDetails />
+      },
     ]
   }
 ])

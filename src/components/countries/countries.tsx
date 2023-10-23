@@ -1,14 +1,21 @@
-import { useCountryContext } from "context/country-context"
+import { useCountryContext, Country as CountryType } from "context/country-context"
 
 import SearchBar from "layout/searchbar"
 import Country from "./country"
 import './countries.scss'
 
+export const loader = async (): Promise<{ countries: Array<CountryType> }> => {
+  const fetchCountries = await fetch("https://restcountries.com/v3.1/all?fields=name,population,region,capital,flags,cioc")
+  const countries = await fetchCountries.json()
+  return { countries: countries as Array<CountryType> }
+}
+
 function Countries() {
-  const { countries, filter } = useCountryContext()
-  const filteredCountries = filter 
-    ? countries.filter(c => c.name.common.toLowerCase().includes(filter.toLowerCase()))
-    : countries
+  const { countries: _countries, filter } = useCountryContext()
+
+  const filteredCountries = filter
+    ? _countries.filter(c => c.name.common.toLowerCase().includes(filter.toLowerCase()))
+    : _countries
   return (
     <div>
       <SearchBar />

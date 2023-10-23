@@ -8,12 +8,13 @@ export type Country = {
     nativeName: {
       [key: string]: {
         official: string
-        native: string
+        common: string
       }
     }
   }
   capital: Array<string>
   region: string
+  subregion: string
   population: number
   flags: {
     png?: string
@@ -21,6 +22,17 @@ export type Country = {
     alt?: string
   }
   cioc: string
+  tld: Array<string>
+  currencies: {
+    [key: string]: {
+      name: string
+      symbol: string
+    }
+  }
+  languages: {
+      [key: string]: string
+  }
+  borders: Array<string>
 }
 
 export type countryState = {
