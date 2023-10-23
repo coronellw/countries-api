@@ -5,7 +5,7 @@ import Country from "./country"
 import './countries.scss'
 
 export const loader = async (): Promise<{ countries: Array<CountryType> }> => {
-  const fetchCountries = await fetch("https://restcountries.com/v3.1/all?fields=name,population,region,capital,flags,cioc")
+  const fetchCountries = await fetch("https://restcountries.com/v3.1/all?fields=name,population,region,capital,flags,cca3")
   const countries = await fetchCountries.json()
   return { countries: countries as Array<CountryType> }
 }

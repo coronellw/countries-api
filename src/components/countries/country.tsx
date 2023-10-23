@@ -10,7 +10,7 @@ function Country({ country }: CountryProps) {
 
   const handleFetchCountry = async () => {
     try {
-      const fetchResponse = await fetch(`https://restcountries.com/v3.1/alpha/${country.cioc}`)
+      const fetchResponse = await fetch(`https://restcountries.com/v3.1/alpha/${country.cca3}`)
       const countryResult = await fetchResponse.json()
       setSelectedCountry(countryResult[0])
       setFilter('')
@@ -19,7 +19,6 @@ function Country({ country }: CountryProps) {
     } catch (error) {
       return navigate('/error')
     }
-    
   }
 
   return (

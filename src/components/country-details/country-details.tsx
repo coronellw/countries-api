@@ -9,11 +9,11 @@ import './country-details.scss'
 
 function CountryDetails() {
   const navigate = useNavigate()
-  const { selectedCountry, setSelectedCountry, setFilter } = useCountryContext()
+  const { selectedCountry, setSelectedCountry } = useCountryContext()
 
   useEffect(() => {
     if (!selectedCountry) {
-      console.log('[country-details] should redirect')
+      console.log('[country-details] should redirect if no selectedCountry')
       navigate('/')
     }
   }, [])
@@ -23,7 +23,6 @@ function CountryDetails() {
       const fetchResponse = await fetch(`https://restcountries.com/v3.1/alpha/${countryCode}`)
       const countryResult = await fetchResponse.json()
       setSelectedCountry(countryResult[0])
-      setFilter('')
     } catch (error) {
       return navigate('/error')
     }
@@ -36,30 +35,32 @@ function CountryDetails() {
   }
 
   const getTLD = () => {
-    if (selectedCountry) {
+    if (selectedCountry && selectedCountry.tld) {
       return selectedCountry.tld.join(', ')
     }
   }
 
   const getCurrencies = () => {
-    if (selectedCountry) {
+    if (selectedCountry && selectedCountry.currencies) {
       return Object.values(selectedCountry.currencies).map(c => c.name).join(', ')
     }
   }
 
   const getLanguages = () => {
-    if (selectedCountry) {
+    if (selectedCountry && selectedCountry.languages) {
       return Object.values(selectedCountry.languages).join(', ')
     }
   }
 
   const getBorders = () => {
     if (selectedCountry) {
+      if(!selectedCountry.borders) return <em>No border countries</em>
       const borders = data.filter(c => selectedCountry.borders.includes(c.alpha3Code))
       return borders.map(b => (
         <div
           className="details__border"
           onClick={() => {handleFetchCountry(b.alpha3Code)}}
+          key={b.alpha3Code}
         >
           {b.name}
         </div>

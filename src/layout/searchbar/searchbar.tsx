@@ -21,7 +21,7 @@ const regions: Array<Item> = [
 
 function getRestCountryURL(region: string): string {
   return region === "all"
-    ? "https://restcountries.com/v3.1/all?fields=name,population,region,capital,flags,cioc"
+    ? "https://restcountries.com/v3.1/all?fields=name,population,region,capital,flags,cca3"
     : `https://restcountries.com/v3.1/region/${region}`
 }
 
@@ -40,7 +40,7 @@ function SearchBar() {
     } catch (error) {
       console.log("We catched and error\n", error)
     }
-  }, [currentItem, setCountries])
+  }, [currentItem])
 
   useEffect(() => {
     fetchCountries()

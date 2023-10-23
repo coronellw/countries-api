@@ -21,7 +21,7 @@ export type Country = {
     svg?: string
     alt?: string
   }
-  cioc: string
+  cca3: string
   tld: Array<string>
   currencies: {
     [key: string]: {
