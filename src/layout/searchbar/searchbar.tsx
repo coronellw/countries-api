@@ -28,7 +28,7 @@ function getRestCountryURL(region: string): string {
 function SearchBar() {
   const [currentItem, setCurrentItem] = useState<Item>(defaultOption)
   const handleSelectedItem = (item: Item) => setCurrentItem(item)
-  const { setCountries } = useCountryContext()
+  const { setCountries, setFilter } = useCountryContext()
 
   const fetchCountries = useCallback(async () => {
     try {
@@ -40,18 +40,17 @@ function SearchBar() {
     } catch (error) {
       console.log("We catched and error\n", error)
     }
-  }, [currentItem])
+  }, [currentItem, setCountries])
 
   useEffect(() => {
     fetchCountries()
   }, [fetchCountries])
   return (
-    <div className="search container-fluid">
-      <span className="search__bar">
+    <div className="search container my-4">
+      <span className="search__bar col-sm-12 col-md-4">
         <FontAwesomeIcon
           className="search__icon"
           icon={faSearch}
-          color="gray"
         />
         <input
           className="search__input"
@@ -59,13 +58,14 @@ function SearchBar() {
           name="search"
           id="serach"
           placeholder="Search for a country..."
+          onChange={(e) => setFilter(e.target.value)}
         />
       </span>
       <Dropdown
         currentItem={currentItem}
         options={regions}
         onItemSelected={handleSelectedItem}
-        className="search__dropdown col-6"
+        className="search__dropdown col-6 col-md-3"
       />
     </div>
   )

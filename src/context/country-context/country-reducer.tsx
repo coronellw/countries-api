@@ -1,8 +1,8 @@
 import { countryState, Country } from "./country-context"
 
 type action = {
-  type: "SET_COUNTRIES" | "SET_SELECTED_COUNTRY"
-  payload: Country | Array<Country>
+  type: "SET_COUNTRIES" | "SET_SELECTED_COUNTRY" | "SET_FILTER"
+  payload: string | Country | Array<Country>
 }
 
 export const reducer = (state: countryState, { type, payload }: action): countryState => {
@@ -17,6 +17,11 @@ export const reducer = (state: countryState, { type, payload }: action): country
         ...state,
         selectedCountry: payload as Country
       }
+    case actions.SET_FILTER:
+      return {
+        ...state,
+        filter: payload as string
+      }
     default:
       return state
   }
@@ -30,9 +35,13 @@ export const initialCountryState: countryState = {
   setSelectedCountry: () => {
     console.log("setup selected country")
   },
+  setFilter: () => {
+    console.log("sets filter value")
+  }
 }
 
 export const actions = {
   SET_COUNTRIES: "SET_COUNTRIES",
   SET_SELECTED_COUNTRY: "SET_SELECTED_COUNTRY",
+  SET_FILTER: "SET_FILTER"
 }

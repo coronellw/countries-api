@@ -1,12 +1,16 @@
 .countries {
   display: grid;
   gap: 2rem;
-  grid-template-columns: minmax(min-content, 300px);
+  grid-template-columns: repeat(auto-fit, 300px);
   place-content: center;
 
   .country {
     background-color: hsl(var(--elements));
     color: hsl(var(--fg-clr))
+  }
+
+  .card-img-top {
+    height: 210px;
   }
 
   .card-text {

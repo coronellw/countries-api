@@ -5,8 +5,13 @@ export type Country = {
   name: {
     common: string
     official: string
-    nativeName: any
-  },
+    nativeName: {
+      [key: string]: {
+        official: string
+        native: string
+      }
+    }
+  }
   capital: Array<string>
   region: string
   population: number
@@ -23,6 +28,8 @@ export type countryState = {
   setCountries: (countries: Array<Country>) => void
   selectedCountry?: Country
   setSelectedCountry: (country: Country) => void
+  filter?: string
+  setFilter: (value?: string) => void
 }
 
 const CountryContext = createContext(initialCountryState)
@@ -37,14 +44,18 @@ export const CountryProvider = ({ children }: PropsWithChildren) => {
     dispatch({ type: "SET_COUNTRIES", payload: countries })
   const setSelectedCountry = (country: Country) =>
     dispatch({ type: "SET_SELECTED_COUNTRY", payload: country })
+  const setFilter = (filter?: string) =>
+    dispatch({ type: "SET_FILTER", payload: filter ?? "" })
 
   return (
     <CountryContext.Provider
       value={{
         countries: state.countries,
         selectedCountry: state.selectedCountry,
+        filter: state.filter,
         setCountries,
         setSelectedCountry,
+        setFilter,
       }}
     >
       {children}
